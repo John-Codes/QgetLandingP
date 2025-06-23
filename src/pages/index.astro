@@ -1,16 +1,525 @@
----
-
----
-
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Qget - Quick Healthy Delivery | Drive Less, Save Money, Live Better</title>
+    <meta name="title" content="Qget - Quick Healthy Delivery | Drive Less, Save Money, Live Better" />
+    <meta name="description" content="Same-day delivery of healthy products you actually want. No more forced junk food choices. Order fresh, nutritious options and get them delivered quickly. Your health, your choice." />
+    <meta name="keywords" content="healthy delivery, same day delivery, quick delivery, healthy snacks, drive less save money, convenience delivery, healthy vending alternatives, nutritious food delivery" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="author" content="Qget" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://qget.io/" />
+    <meta property="og:title" content="Qget - Quick Healthy Delivery | Drive Less, Save Money, Live Better" />
+    <meta property="og:description" content="Same-day delivery of healthy products you actually want. No more forced junk food choices. Order fresh, nutritious options and get them delivered quickly. Your health, your choice." />
+    <meta property="og:image" content="https://qget.io/og-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://qget.io/" />
+    <meta property="twitter:title" content="Qget - Quick Healthy Delivery | Drive Less, Save Money, Live Better" />
+    <meta property="twitter:description" content="Same-day delivery of healthy products you actually want. No more forced junk food choices. Order fresh, nutritious options and get them delivered quickly. Your health, your choice." />
+    <meta property="twitter:image" content="https://qget.io/og-image.jpg" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Qget",
+        "description": "Quick healthy delivery service for better living",
+        "url": "https://qget.io",
+        "logo": "https://qget.io/logo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-555-QGET-NOW",
+            "contactType": "customer service"
+        },
+        "sameAs": [
+            "https://linkedin.com/company/qget",
+            "https://twitter.com/qget"
+        ]
+    }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #FFD700; /* Yellow */
+            --primary-dark: #DAA520; /* Darker Yellow */
+            --secondary: #FF4500; /* Red/OrangeRed */
+            --text-primary: #2C2C2C; /* Dark Gray for readability */
+            --text-secondary: #666666; /* Lighter Gray */
+            --bg-primary: #FFFFFF; /* White */
+            --bg-secondary: #F5F5F5; /* Very Light Gray for subtle contrast */
+            --border: #E0E0E0; /* Light Gray border */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 10rem 0 6rem;
+            text-align: center;
+            background: var(--bg-primary); /* Pure white for minimalism */
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .cta-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: var(--bg-primary);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--bg-primary); /* White for minimalism */
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: none; /* Remove border for cleaner look */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 4rem 0;
+            background: var(--secondary); /* Red accent for impact */
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+        
+        /* CTA Section */
+        .final-cta {
+            padding: 6rem 0;
+            text-align: center;
+            background: var(--bg-primary); /* White for minimalism */
+        }
+        
+        .final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .final-cta p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            text-align: center;
+            color: #94a3b8;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button, .cta-secondary {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Qget</a>
+            <ul class="nav-links">
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#contact">Get Started</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Order Now</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Drive Less, Save Money<br>Get What You Actually Want</h1>
+                <p class="subtitle">Same-day delivery of healthy products you choose, not what corporations force on you. Break free from junk food monopolies. Your health is your life - take control.</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="cta-button">Start Ordering</a>
+                    <a href="#benefits" class="cta-secondary">See Benefits</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="benefits">
+            <div class="container">
+                <h2 class="section-title">Your Health, Your Choice</h2>
+                <p class="section-subtitle">Stop being forced to buy unhealthy products just because big corporations bought the best locations. Choose what's actually good for you and your loved ones.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚗</div>
+                        <h3>Drive Less, Save Money</h3>
+                        <p>No more wasted trips to the store for overpriced junk. Save on gas, time, and money while getting exactly what you need delivered to your door.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🏃‍♂️</div>
+                        <h3>Same-Day Delivery</h3>
+                        <p>Order what you want, when you want it. Fast, reliable delivery that fits your schedule, not the other way around.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🥗</div>
+                        <h3>Healthy Options Only</h3>
+                        <p>No more choosing between Coke and Pepsi. We stock nutritious, wholesome products that actually benefit your health and wellbeing.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Convenience & Safety</h3>
+                        <p>Shop from home safely. No crowds, no lines, no pressure. Just convenient access to products that support your healthy lifestyle.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">⏰</div>
+                        <h3>Time Saving</h3>
+                        <p>Reclaim hours of your life. No more shopping trips, parking hassles, or waiting in checkout lines. Spend time on what matters most.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">💪</div>
+                        <h3>Take Control</h3>
+                        <p>Break free from corporate manipulation. Choose products based on your values and health goals, not what generates the highest profits.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Healthy Products</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">Same Day</div>
+                        <div class="stat-label">Delivery Promise</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">$50+</div>
+                        <div class="stat-label">Monthly Savings</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Order Anytime</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta" id="contact">
+            <div class="container">
+                <h2>Ready to Take Control of Your Health?</h2>
+                <p>Stop letting corporations decide what you consume. Join thousands who've discovered the freedom of choosing healthy products that actually support their wellbeing. Your health is your life - make it count.</p>
+                <a href="mailto:hello@qget.io" class="cta-button">Start Your Healthy Journey</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Qget</h4>
+                    <p>Breaking the junk food monopoly, one healthy delivery at a time. Your health, your choice.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Organic Snacks</a></li>
+                        <li><a href="#">Natural Beverages</a></li>
+                        <li><a href="#">Healthy Meals</a></li>
+                        <li><a href="#">Wellness Products</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">Delivery Areas</a></li>
+                        <li><a href="#">Health Guide</a></li>
+                        <li><a href="#">Customer Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:hello@qget.io">hello@qget.io</a></li>
+                        <li><a href="tel:+1-555-QGET-NOW">+1-555-QGET-NOW</a></li>
+                        <li>Austin, Texas</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Qget. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>
